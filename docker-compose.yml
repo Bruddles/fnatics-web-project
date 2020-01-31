@@ -1,0 +1,18 @@
+version: '3'
+services:
+    app:
+        build:
+          context: .
+          dockerfile: ./docker/php/Dockerfile
+        image: php-docker
+        ports:
+          - 8080:80
+    mysql:
+        image: mysql:5.7
+        ports:
+          - 13306:3306
+        environment:
+          MYSQL_DATABASE: fanatics-upport-rota-db
+          MYSQL_USER: admin
+          MYSQL_PASSWORD: admin
+          MYSQL_ROOT_PASSWORD: admin
